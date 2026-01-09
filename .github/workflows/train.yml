@@ -2,9 +2,11 @@ name: ML Training Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   train:
@@ -32,9 +34,9 @@ jobs:
           echo "## Lab 2 Results" >> $GITHUB_STEP_SUMMARY
           echo "**Name:** Aarjav Kiledar" >> $GITHUB_STEP_SUMMARY
           echo "**Roll No:** 2022bcs0199" >> $GITHUB_STEP_SUMMARY
-           echo "" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           grep "MSE" output.txt || true
-           grep "R2" output.txt || true
+          grep "R2" output.txt || true
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
